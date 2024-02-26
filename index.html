@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 1400px;
+            height: 100vh;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            background-color: aqua;
+        }
+        .column{
+            width: 15vh;
+            height: 90vh;
+            background-color: white;
+            margin: 10px;
+            
+
+        }
+    </style>
+</head>
+<body>
+   
+
+    
+    <button id = b1>
+        add column
+    </button>
+    <button id="b2">
+        RANDOM
+    </button>
+    <div id="container">
+      
+    </div>
+</body>
+<script>
+     const b1 = document.getElementById("b1")
+     b1.style.backgroundColor = 'red'
+     b1.style.width = '50px'; // Set the width to 150 pixels
+     b1.style.height = '50px';
+     const b2 = document.getElementById("b2")
+     b2.style.backgroundColor = 'green'
+     
+     function getRandomColor() {
+            // Generate a random color in hex format
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+     function changecolor(){
+        const container = document.getElementById("container");
+            const children = container.children;
+            for (let child of children) {
+                child.style.backgroundColor = getRandomColor()
+            }
+     }
+
+    
+    
+    function buttonpressed(){
+        const container =document.getElementById("container")
+       const ball=document.createElement('div')
+        ball.className="column"
+        
+        container.appendChild(ball)
+    }
+    b1.onclick = buttonpressed
+   
+    b2.onclick = changecolor
+</script>
+
+</html>
